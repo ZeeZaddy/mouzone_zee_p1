@@ -16,6 +16,7 @@ public class EmployeeUserReimbursementDAO implements GenericDAO<EmployeeReimburs
 
     ConnectionFactory cu = ConnectionFactory.getInstance();
     List<EmployeeReimbursement> eurd = new ArrayList<EmployeeReimbursement>();
+    EmployeeUserDAO employeeUserDAO = new EmployeeUserDAO();
 
     public EmployeeReimbursement create(EmployeeReimbursement eurd) {
         String sql = "insert into reim(id, status, author, status, amount, description, courseType) values(default, ?, ?, ?, ?, ?)";
@@ -29,41 +30,52 @@ public class EmployeeUserReimbursementDAO implements GenericDAO<EmployeeReimburs
             ps.setString(6, eurd.getCourseType());
 
             ResultSet rs = ps.executeQuery();
-            return eurd;
+            return null;
+
         } catch (SQLException e) {
             e.printStackTrace();
-            return eurd;
         }
-
+        return null;
     }
 
     @Override
     public EmployeeReimbursement getById(Integer id) {
+
+
         return null;
     }
 
 
-    public List<EmployeeReimbursement> getAll (){
-        return eurd;
+    public List<EmployeeReimbursement> getAll () {
+
+        List<EmployeeReimbursement> eurd = new ArrayList<>();
+
+        String sql = "select * from reim";
+
+        try (Connection conn = cu.getConnection()) {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                EmployeeReimbursement er = new EmployeeReimbursement(
+                        rs.getInt("id"),
+                        Status.valueOf(rs.getString("status")),
+                        employeeUserDAO.getByUsername(rs.getString("author")),
+                        employeeUserDAO.getByUsername(rs.getString("resolver")),
+                        rs.getDouble("amount"),
+                        rs.getString("description"),
+                        rs.getString("courseType"));
+
+                eurd.add(er);
+            }
+            return eurd;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
-//    List<EmployeeReimbursement> eurd = new ArrayList<>();
-//        String sql = "select * from reim";
-//
-//            try(Connection conn = cu.getConnection()) {
-//                PreparedStatement ps = conn.prepareStatement(sql);
-//                ResultSet rs = ps.executeQuery();
-//
-//            while(rs.next()){
-//                EmployeeReimbursement er = new EmployeeReimbursement();
-//                        er.setId(rs.getInt("id")),
-//                        er.setStatus(Status.valueOf(rs.getString("status").toUpperCase())),
-//                        er.setAuthor(eurd.get());
-//                )
-//            }
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
+
 
     @Override
     public void update(EmployeeReimbursement eurd) {
