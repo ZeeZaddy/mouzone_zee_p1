@@ -90,8 +90,9 @@ public class EmployeeUserDAO implements GenericDAO<EmployeeUser> {
             if (rs.next()) {
                 EmployeeUser e = new EmployeeUser(
                         rs.getString("username"),
-                        rs.getString("password"));
-//                Role.valueOf(rs.getString("role").replace("_", " " ).toUpperCase())
+                        rs.getString("password"),
+                Role.valueOf(rs.getString("role").replace(" ", "_" ).toUpperCase())
+                );
 
                 return e;
             }

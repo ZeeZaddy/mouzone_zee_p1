@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Objects;
 
 public class LoginServlet extends HttpServlet {
 
@@ -23,29 +24,30 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
+
         EmployeeUser e = LoginService.login(username, password);
-//
+
         if (e != null) {
-//            if (e.getRole() == Role.EMPLOYEE) {
-            HttpSession session = request.getSession();
-            EmployeeUser employeeUserDao = employeeUserDAO.getByUsername(username);
+            if(e.getRole().equals(Role.EMPLOYEE)) {
+                HttpSession session = request.getSession();
+                EmployeeUser employeeUserDao = employeeUserDAO.getByUsername(username);
 //                response.getWriter().write("Succesfully logged in");
-            session.setAttribute("employeuser", employeeUserDao);
-            response.sendRedirect("mainpage.html");
-
-//                e.getRole() == Role.FINANCE_MANAGER
-        } else {
-            HttpSession session = request.getSession();
-//                EmployeeUser employeeUserDao = employeeUserDAO.getByUsername(username);
-//                session.setAttribute("employeuser", employeeUserDao);
-            response.sendRedirect("manager.html");
-
-//            } else {
-//                response.setStatus(404);
-//            }
+                session.setAttribute("employeeuser", employeeUserDao);
+                response.sendRedirect("mainpage.html");
 
 
+            }else {
+                HttpSession session = request.getSession();
+                EmployeeUser employeeUserDao = employeeUserDAO.getByUsername(username);
+                session.setAttribute("manager", employeeUserDao);
+                response.sendRedirect("manager.html");
+            }
+
+            }else{
+                response.sendRedirect("index.html");
+            }
+
+
+            }
         }
-    }
-}
-//}
+

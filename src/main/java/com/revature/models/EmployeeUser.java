@@ -56,6 +56,12 @@ public class EmployeeUser {
 
     }
 
+    public EmployeeUser(String username, String password, Role role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
     public Integer getId() {
         return id;
     }
