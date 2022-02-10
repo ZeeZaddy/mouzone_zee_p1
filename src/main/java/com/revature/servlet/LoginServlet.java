@@ -12,10 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class LoginServlet extends HttpServlet{
+public class LoginServlet extends HttpServlet {
 
     LoginService LoginService = new LoginService();
-    EmployeeUserDAO  employeeUserDAO = new EmployeeUserDAO();
+    EmployeeUserDAO employeeUserDAO = new EmployeeUserDAO();
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -23,16 +24,28 @@ public class LoginServlet extends HttpServlet{
         String password = request.getParameter("password");
 
         EmployeeUser e = LoginService.login(username, password);
-        if(e !=null){
-            if(e.getRole() == Role.EMPLOYEE){
-                HttpSession session = request.getSession();
-            }
-            response.getWriter().write("Succesfully logged in");
-        }else{
-            response.setStatus(404);
+//
+        if (e != null) {
+//            if (e.getRole() == Role.EMPLOYEE) {
+            HttpSession session = request.getSession();
+            EmployeeUser employeeUserDao = employeeUserDAO.getByUsername(username);
+//                response.getWriter().write("Succesfully logged in");
+            session.setAttribute("employeuser", employeeUserDao);
+            response.sendRedirect("mainpage.html");
+
+//                e.getRole() == Role.FINANCE_MANAGER
+        } else {
+            HttpSession session = request.getSession();
+//                EmployeeUser employeeUserDao = employeeUserDAO.getByUsername(username);
+//                session.setAttribute("employeuser", employeeUserDao);
+            response.sendRedirect("manager.html");
+
+//            } else {
+//                response.setStatus(404);
+//            }
+
+
         }
-
-
-
     }
 }
+//}

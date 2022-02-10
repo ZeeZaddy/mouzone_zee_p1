@@ -11,7 +11,7 @@ body {
 main {
     width: 100%;
     height: 100vh;
-    background: url(../images/pineapple.jpg) center no-repeat;
+    background: url(car.jpeg) center no-repeat;
     background-size: cover;
     padding: 5% 10%;
     position: relative;
@@ -51,7 +51,7 @@ header ol li a {
     text-transform: uppercase;
     text-decoration: none;
     font-weight: 700;
-    color: #818181;
+    color: #fffdfc;
     font-size: 16px;
 }
 
@@ -78,23 +78,23 @@ section {
 
 section h4 {
     font-size: 24px;
-    color: #818181;
+    color: #fffdfc;
     font-weight: 400;
 }
 
 section h1 {
     font-size: 70px;
-    color: #818181;
+    color: #fffdfc;
     font-weight: 700;
 }
 
 section h1 span {
     font-weight: 400;
-    color: #000000;
+    color: #8D609F;
 }
 
 section button {
-    background-color: #000000;
+    background-color: #020202;
     color: rgba(255, 255, 255, 0.8);
     font-weight: 700;
     border: none;

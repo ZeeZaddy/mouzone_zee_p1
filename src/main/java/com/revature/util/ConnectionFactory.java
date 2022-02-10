@@ -32,14 +32,7 @@ public class ConnectionFactory {
             e.printStackTrace();
         }
     }
-    /**
-     *
-     * <p>This method follows the Singleton Design Pattern to restrict this class to only having 1 instance.</p>
-     * <p>It is invoked via:</p>
-     *
-     * {@code ConnectionFactory.getInstance()}
-     *  “Synchronized” is the keyword that provides your code with the ability to allow only a single thread to operate on it without interference from any other thread during that period.
-     */
+
     public static synchronized ConnectionFactory getInstance() {
         if(instance == null) {
             instance = new ConnectionFactory();
@@ -48,10 +41,6 @@ public class ConnectionFactory {
         return instance;
     }
 
-    /**
-     * <p>The {@link ConnectionFactory#getConnection()} method is responsible for leveraging a specific Database Driver to obtain an instance of the {@link java.sql.Connection} interface.</p>
-     * <p>Typically, this is accomplished via the use of the {@link java.sql.DriverManager} class.</p>
-     */
     public Connection getConnection() {
 
 

@@ -24,17 +24,21 @@ import com.revature.models.Employee;
 public class LoginService {
 
 
-	private EmployeeUserDAO employeeUserDAO = new EmployeeUserDAO();
+	public static EmployeeUserDAO employeeUserDAO = new EmployeeUserDAO();
 
 	public EmployeeUser login(String username, String password) {
 		EmployeeUser e = employeeUserDAO.getByUsername(username);
 
 		if (e != null) {
+			System.out.println(e.getUsername());
+			System.out.println(e.getPassword());
+
 			if (username.equals(e.getUsername()) && password.equals(e.getPassword())) {
 				return e;
 			}
+		}else {
+			System.out.println("Incorrect username/password");
 		}
-		System.out.println("Incorrect username/password");
 		return null;
 
 }

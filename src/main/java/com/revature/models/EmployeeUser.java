@@ -50,10 +50,9 @@ public class EmployeeUser {
         this.role = role;
     }
 
-    public EmployeeUser(String username, String password, Role role) {
+    public EmployeeUser(String username, String password) {
         this.username = username;
         this.password = password;
-        this.role = role;
 
     }
 
