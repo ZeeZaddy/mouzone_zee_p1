@@ -1,5 +1,8 @@
 package com.revature.servlet;
 
+import com.revature.models.EmployeeReimbursement;
+import com.revature.models.EmployeeUser;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +28,17 @@ public class RequestForm extends HttpServlet {
         }else{
             double amount = Double.parseDouble(request.getParameter("amount"));
             String description = request.getParameter("description");
+            String courseType = request.getParameter("courseType");
+            String letterGrade = request.getParameter("letterGrade");
 
+
+            EmployeeReimbursement e = (EmployeeReimbursement) session.getAttribute("employeeuser");
+            e.setAmount(amount);
+            e.setDescription(description);
+            e.setCourseType(courseType);
+            e.setLetterGrade(letterGrade);
+
+            session.setAttribute("employeeuser", e);
         }
 
 

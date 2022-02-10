@@ -23,7 +23,7 @@ public class Reimbursement extends EmployeeReimbursement {
      * This includes the minimum parameters needed for the {@link EmployeeReimbursement} class.
      * If other fields are needed, please create additional constructors.
      */
-    public Reimbursement(int id, Status status, EmployeeUser author, EmployeeUser resolver, double amount, String description, String courseType) {
-        super(id, status, author, resolver, amount, description, courseType);
+    public Reimbursement(int id, Status status, EmployeeUser author, EmployeeUser resolver, double amount, String description, String courseType, String letterGrade) {
+        super(id, status, author, resolver, amount, description, courseType, letterGrade);
     }
 }

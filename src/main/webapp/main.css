@@ -93,7 +93,7 @@ section h1 span {
     color: #8D609F;
 }
 
-section button {
+.submit-btn{
     background-color: #000000;
     color: rgba(255, 255, 255, 0.8);
     font-weight: 700;

@@ -28,12 +28,13 @@ public class EmployeeReimbursement {
     private double amount;
     private String description;
     private String courseType;
+    private String letterGrade;
 
     public EmployeeReimbursement() {
         super();
     }
 
-    public EmployeeReimbursement(int id, Status status, EmployeeUser author, EmployeeUser resolver, double amount, String description, String courseType) {
+    public EmployeeReimbursement(int id, Status status, EmployeeUser author, EmployeeUser resolver, double amount, String description, String courseType, String letterGrade) {
         super();
         this.id = id;
         this.status = status;
@@ -42,15 +43,17 @@ public class EmployeeReimbursement {
         this.amount = amount;
         this.description = description;
         this.courseType = courseType;
+        this.letterGrade = letterGrade;
     }
 
-    public EmployeeReimbursement(int id, Status status, EmployeeUser author, double amount, String description, String courseType) {
+    public EmployeeReimbursement(int id, Status status, EmployeeUser author, double amount, String description, String courseType, String letterGrade) {
         this.id = id;
         this.status = status;
         this.author = author;
         this.amount = amount;
         this.description = description;
         this.courseType = courseType;
+        this.letterGrade = letterGrade;
     }
 
     public int getId() {
@@ -112,17 +115,25 @@ public class EmployeeReimbursement {
         this.courseType = courseType;
     }
 
+    public String getLetterGrade() {
+        return letterGrade;
+    }
+
+    public void setLetterGrade(String letterGrade) {
+        this.letterGrade = letterGrade;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EmployeeReimbursement that = (EmployeeReimbursement) o;
-        return id == that.id && Double.compare(that.amount, amount) == 0 && status == that.status && Objects.equals(author, that.author) && Objects.equals(resolver, that.resolver) && Objects.equals(description, that.description) && Objects.equals(courseType, that.courseType);
+        return id == that.id && Double.compare(that.amount, amount) == 0 && status == that.status && Objects.equals(author, that.author) && Objects.equals(resolver, that.resolver) && Objects.equals(description, that.description) && Objects.equals(courseType, that.courseType) && Objects.equals(letterGrade, that.letterGrade);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, status, author, resolver, amount);
+        return Objects.hash(id, status, author, resolver, amount, description, courseType, letterGrade);
     }
 
     @Override
@@ -135,6 +146,7 @@ public class EmployeeReimbursement {
                 ", amount=" + amount +
                 ", description=" + description +
                 ", Course Type=" + courseType +
+                ", Letter Grade=" + letterGrade +
                 '}';
     }
 }

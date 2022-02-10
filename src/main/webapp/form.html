@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="form.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="container">
+    <div class="title">Remimbursement Form</div>
+    <div class="content">
+        <form action="mainpage" method="post">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="dollars">Cost</span>
+                    <input type="number" name="amount" placeholder="Enter Cost" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Course Type</span>
+                    <select id="courseType" name="courseType">
+                        <option value="">Make a selection</option>
+                        <option value="University Course">University Course</option>
+                        <option value="Certification Prep">Certification Prep</option>
+                        <option value="Certification Test">Certification Test</option>
+                        <option value="Seminar">Social Seminar</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <!-- <input type="text" placeholder="Enter your username" required> -->
+                </div>
+                <div class="input-box">
+                    <span class="details">Description</span>
+                    <input type="text" name="description" placeholder="Description" required>
+                </div>
+
+                <!-- <div class="input-box">
+                  <span class="details">Password</span>
+                  <input type="text" placeholder="Enter your password" required>
+                </div> -->
+
+            </div>
+            <div class="gender-details">
+                <input type="radio" name="gender" id="dot-1">
+                <input type="radio" name="gender" id="dot-2">
+                <input type="radio" name="gender" id="dot-3">
+                <input type="radio" name="gender" id="dot-4">
+                <input type="radio" name="gender" id="dot-5">
+                <span class="gender-title">Letter Grade</span>
+                <div class="category">
+                    <label for="dot-1">
+                        <span class="dot one"></span>
+                        <span class="gender">A +</span>
+                    </label>
+                    <label for="dot-2">
+                        <span class="dot two"></span>
+                        <span class="gender">B +</span>
+                    </label>
+                    <label for="dot-3">
+                        <span class="dot three"></span>
+                        <span class="gender">C +</span>
+                    </label>
+                    <label for="dot-4">
+                        <span class="dot four"></span>
+                        <span class="gender">D +</span>
+                    </label>
+                    <label for="dot-5">
+                        <span class="dot five"></span>
+                        <span class="gender">F +</span>
+                    </label>
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Submit Form">
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

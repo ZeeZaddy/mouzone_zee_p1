@@ -19,7 +19,7 @@ public class EmployeeUserReimbursementDAO implements GenericDAO<EmployeeReimburs
     EmployeeUserDAO employeeUserDAO = new EmployeeUserDAO();
 
     public EmployeeReimbursement create(EmployeeReimbursement eurd) {
-        String sql = "insert into reim(id, status, author, status, amount, description, courseType) values(default, ?, ?, ?, ?, ?)";
+        String sql = "insert into reim(id, status, author, status, amount, description, courseType, letterGrade) values(default, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = cu.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, String.valueOf(eurd.getStatus()));
@@ -28,6 +28,7 @@ public class EmployeeUserReimbursementDAO implements GenericDAO<EmployeeReimburs
             ps.setDouble(4, eurd.getAmount());
             ps.setString(5, eurd.getDescription());
             ps.setString(6, eurd.getCourseType());
+            ps.setString(7, eurd.getLetterGrade());
 
             ResultSet rs = ps.executeQuery();
             return null;
@@ -64,7 +65,9 @@ public class EmployeeUserReimbursementDAO implements GenericDAO<EmployeeReimburs
                         employeeUserDAO.getByUsername(rs.getString("resolver")),
                         rs.getDouble("amount"),
                         rs.getString("description"),
-                        rs.getString("courseType"));
+                        rs.getString("courseType"),
+                        rs.getString("letterGrade")
+                );
 
                 eurd.add(er);
             }
