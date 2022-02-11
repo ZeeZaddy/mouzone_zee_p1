@@ -109,7 +109,7 @@ body {
   right: 0;
   height: 0;
   z-index: 1;
-  background: #fff;
+  background: url('laser.jpeg') no-repeat center;
   opacity: 0;
   transition: 0.6s;
 }

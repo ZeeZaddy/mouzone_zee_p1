@@ -2,6 +2,8 @@ package com.revature.servlet;
 
 import com.revature.models.EmployeeReimbursement;
 import com.revature.models.EmployeeUser;
+import com.revature.models.Status;
+import com.revature.services.ReimbursementService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,19 +28,23 @@ public class RequestForm extends HttpServlet {
             out.write("<h1>Wrong page HOE<h1>");
             out.write("<a href='index.html'>Click here MF</a>");
         }else{
-            double amount = Double.parseDouble(request.getParameter("amount"));
+             int amount = Integer.parseInt(request.getParameter("amount"));
             String description = request.getParameter("description");
             String courseType = request.getParameter("courseType");
             String letterGrade = request.getParameter("letterGrade");
 
 
-            EmployeeReimbursement e = (EmployeeReimbursement) session.getAttribute("employeeuser");
-            e.setAmount(amount);
-            e.setDescription(description);
-            e.setCourseType(courseType);
-            e.setLetterGrade(letterGrade);
+            EmployeeUser e = (EmployeeUser) session.getAttribute("employeeuser");
+            EmployeeReimbursement reim = new EmployeeReimbursement(Status.PENDING, e, amount, description, courseType, letterGrade);
+//            e.setAmount(amount);
+//            e.setDescription(description);
+//            e.setCourseType(courseType);
+//            e.setLetterGrade(letterGrade);
+//            session.setAttribute("reim", e);
+            ReimbursementService rs = new ReimbursementService();
+            rs.create(reim);
+            response.sendRedirect("review.html");
 
-            session.setAttribute("employeeuser", e);
         }
 
 

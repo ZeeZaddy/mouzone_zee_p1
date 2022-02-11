@@ -3,6 +3,7 @@ package com.revature.services;
 import java.util.Optional;
 
 import com.revature.models.EmployeeUser;
+import com.revature.models.Role;
 import com.revature.repositories.EmployeeUserDAO;
 import com.revature.models.Employee;
 
@@ -42,9 +43,12 @@ public class LoginService {
 		return null;
 
 }
+
+//	public EmployeeUser register(EmployeeUser userToBeRegistered) {
+//		EmployeeUser employeeUser = new EmployeeUser();
+//		String username = userToBeRegistered.getUsername()
+//	}
 }
-
-
 //	public Optional<Employee> getByUsername(String username) {
 //		return Optional.empty();
 //	}

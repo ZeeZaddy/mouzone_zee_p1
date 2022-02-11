@@ -25,7 +25,7 @@ public class EmployeeReimbursement {
     private Status status;
     private EmployeeUser author;
     private EmployeeUser resolver;
-    private double amount;
+    private int amount;
     private String description;
     private String courseType;
     private String letterGrade;
@@ -34,7 +34,7 @@ public class EmployeeReimbursement {
         super();
     }
 
-    public EmployeeReimbursement(int id, Status status, EmployeeUser author, EmployeeUser resolver, double amount, String description, String courseType, String letterGrade) {
+    public EmployeeReimbursement(int id, Status status, EmployeeUser author, EmployeeUser resolver, int amount, String description, String courseType, String letterGrade) {
         super();
         this.id = id;
         this.status = status;
@@ -46,10 +46,27 @@ public class EmployeeReimbursement {
         this.letterGrade = letterGrade;
     }
 
-    public EmployeeReimbursement(int id, Status status, EmployeeUser author, double amount, String description, String courseType, String letterGrade) {
+    public EmployeeReimbursement(Status status, EmployeeUser author, int amount, String description, String courseType, String letterGrade) {
+        this.status = status;
+        this.author = author;
+//        this.resolver = resolver;
+        this.amount = amount;
+        this.description = description;
+        this.courseType = courseType;
+        this.letterGrade = letterGrade;
+    }
+
+    public EmployeeReimbursement(int id, Status status, EmployeeUser author, int amount, String description, String courseType, String letterGrade) {
         this.id = id;
         this.status = status;
         this.author = author;
+        this.amount = amount;
+        this.description = description;
+        this.courseType = courseType;
+        this.letterGrade = letterGrade;
+    }
+
+    public EmployeeReimbursement(int amount, String description, String courseType, String letterGrade) {
         this.amount = amount;
         this.description = description;
         this.courseType = courseType;
@@ -90,11 +107,11 @@ public class EmployeeReimbursement {
         this.resolver = resolver;
     }
 
-    public double getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(int amount) {
 
         this.amount = amount;
     }
@@ -128,7 +145,7 @@ public class EmployeeReimbursement {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EmployeeReimbursement that = (EmployeeReimbursement) o;
-        return id == that.id && Double.compare(that.amount, amount) == 0 && status == that.status && Objects.equals(author, that.author) && Objects.equals(resolver, that.resolver) && Objects.equals(description, that.description) && Objects.equals(courseType, that.courseType) && Objects.equals(letterGrade, that.letterGrade);
+        return id == that.id && amount == that.amount && status == that.status && Objects.equals(author, that.author) && Objects.equals(resolver, that.resolver) && Objects.equals(description, that.description) && Objects.equals(courseType, that.courseType) && Objects.equals(letterGrade, that.letterGrade);
     }
 
     @Override

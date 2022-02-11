@@ -49,7 +49,7 @@ public class EmployeeUserDAO implements GenericDAO<EmployeeUser> {
 
     @Override
     public EmployeeUser getById (Integer id){
-        String sql = "select * from eployeeuser where id = ?";
+        String sql = "select * from employeeuser where id = ?";
 
         try (Connection conn = cu.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
