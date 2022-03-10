@@ -1,7 +1,7 @@
 # Employee Reimbursement System 
-#Project Description 
+# Project Description 
 The Employee Reimbursement System (ERS) is a full stack web based application designed to allow employees to submit requests for reimbursements for courses, events, and certifications. Once the requests are submitted, a finance manager can approve or reject submitted requests based on certain criteria.
-#Technologies Used
+# Technologies Used
 Java
 Servlets
 Apache Maven
@@ -23,13 +23,13 @@ Add role-based login
 Retrieving submitted forms for manager approval
 Implement Bootstrap to make application more visually appealing
 Include a feature to attach a file from PC
-#Getting Started
+# Getting Started
 Clone repository link on GitHub
 Open Git Bash
 Enter the Git commands as follows to clone repository into desired folder
 Navigate to github folder
 Clone directory using "git clone (repository link)"
-#Usage
+# Usage
 Go to http://localhost:8080/ERS
 Login with these credentials:
 Email: Shaynay
