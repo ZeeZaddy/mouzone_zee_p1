@@ -12,7 +12,7 @@ The Employee Reimbursement System (ERS) is a full stack web based application de
 * CSS
 * JavaScript
 * AJAX / Fetch API
-#Features
+# Features
 Available features:
 
 * Login page
@@ -27,13 +27,13 @@ To-do list:
 * Clone repository link on GitHub
 * Open Git Bash
 * Enter the Git commands as follows to clone repository into desired folder
-*         Navigate to github folder
-*         Clone directory using "git clone (repository link)"
+  * Navigate to github folder
+  * Clone directory using "git clone (repository link)"
 # Usage
 * Go to http://localhost:8080/ERS
 * Login with these credentials:
-*       Email: Shaynay
-*       Password: Naypassword
+  * Email: Shaynay
+  * Password: Naypassword
 * Fill out a Reimbursement Request Form with appropitate information
 * Submit form once all relevant information has been entered
 
