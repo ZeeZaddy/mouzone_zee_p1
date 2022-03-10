@@ -26,16 +26,16 @@ To-do list:
 # Getting Started
 * Clone repository link on GitHub
 * Open Git Bash
-*  Enter the Git commands as follows to clone repository into desired folder
-*   Navigate to github folder
-*   Clone directory using "git clone (repository link)"
+* Enter the Git commands as follows to clone repository into desired folder
+*         Navigate to github folder
+*         Clone directory using "git clone (repository link)"
 # Usage
-Go to http://localhost:8080/ERS
-Login with these credentials:
-Email: Shaynay
-Password: Naypassword
-Fill out a Reimbursement Request Form with appropitate information
-Submit form once all relevant information has been entered
+* Go to http://localhost:8080/ERS
+* Login with these credentials:
+*       Email: Shaynay
+*       Password: Naypassword
+* Fill out a Reimbursement Request Form with appropitate information
+* Submit form once all relevant information has been entered
 
 ![afdaf](https://user-images.githubusercontent.com/86751429/157699845-fcd76c7e-9b66-4245-8493-3e65821278a7.png)
 ![mjfgu](https://user-images.githubusercontent.com/86751429/157700204-5227ff38-3a77-4e07-8660-020d217259ef.png)
