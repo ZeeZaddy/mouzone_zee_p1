@@ -12,17 +12,21 @@ The Employee Reimbursement System (ERS) is a full stack web based application de
 * CSS
 * JavaScript
 * AJAX / Fetch API
+
 # Features
+
 Available features:
 
 * Login page
 * Submiting a form to a database
+
 To-do list:
 
 * Add role-based login
 * Retrieving submitted forms for manager approval
 * Implement Bootstrap to make application more visually appealing
 * Include a feature to attach a file from PC
+
 # Getting Started
 * Clone repository link on GitHub
 * Open Git Bash
